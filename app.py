@@ -9,6 +9,8 @@ import streamlit as st
 import pandas as pd
 import pickle
 import seaborn as sns
+from matplotlib.pyplot import style
+style.use('ggplot')
 
 # list of columns to use for app
 cols = ['MSSubClass', 'MSZoning', 'Neighborhood', 'OverallQual', 'OverallCond', 'YearBuilt', 'FullBath', 'HalfBath', 'GarageType']
@@ -105,8 +107,9 @@ if section == 'Model Explorer':
     try:
         mod_results, val_results = load_model_results(learning_rate, tree_depth, num_rounds, random_state, val_size)
         results_section.table(mod_results)
-        preds_section.pyplot(sns.regplot(x='Preds', y='Values', data=val_results))
+        preds_section.pyplot(sns.regplot(x='Preds', y='Values', data=val_results).figure)
     except:
-        results_section.text("Couldn't find the data for these parameters")
-        preds_section.text("Couldn't find the data for these parameters")
+        results_section.text("Could not find the data with the listed parameters")
+        preds_section.text("Could not find the data with the listed parameters")
+
     
