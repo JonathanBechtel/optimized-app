@@ -1,0 +1,2 @@
+Train Size,Validation Size,Learning Rate,Tree Depth:,Random State,Training Score,Validation Score
+876,584,0.1,3,1951,0.995003778545822,0.8339085747058052

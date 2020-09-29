@@ -36,7 +36,6 @@ def load_boxplots(x_col, y_col):
         chart = pickle.load(boxplot_dict)
     return chart
 
-@st.cache
 def load_model_results(learning_rate, tree_depth, n_estimators, random_state, val_size):
     mod_results_path = f"https://raw.githubusercontent.com/JonathanBechtel/optimized-app/master/models/{learning_rate}_{tree_depth}_{n_estimators}_{random_state}_{val_size}.csv"
     mod_results = pd.read_csv(mod_results_path)
